@@ -1,35 +1,51 @@
 (function () {
-    if (document.getElementById("exercise-section")) return;
+  if (document.getElementById('exercise-section')) return;
 
-    function mount() {
-        const anchor = document.querySelector(".formCard");
-        if (!anchor || document.getElementById("exercise-section")) return false;
+  function mount() {
+    const anchor = document.querySelector('.formCard');
+    if (!anchor || document.getElementById('exercise-section')) return false;
 
-        const section = document.createElement("section");
-        section.id = "exercise-section";
-        section.innerHTML = `
-      <h2>New section title</h2>
-      <p>Short supporting copy.</p>
-      <button type="button" id="exercise-learn-more">Learn More</button>
+    const section = document.createElement('section');
+    section.id = 'exercise-section';
+    section.innerHTML = `
+        <div class="benefits-block" data-benefits="">
+            <!-- Stacked benefits (up to 6) -->
+            <div class="benefits-block__item">
+                <img src="https://tpc.googlesyndication.com/simgad/11938213256650620670?" alt="" aria-hidden="true">
+                <div class="benefits-block__body">
+                    <h3 class="benefits-block__item--benefit-heading">New Accounts Save</h3>
+                    <p>up to $100* on a qualifying purchase.</p>
+                </div>
+            </div>
+
+            <div class="benefits-block__item">
+                <img src="https://tpc.googlesyndication.com/simgad/6545472095436981282?" alt="" aria-hidden="true">
+                <div class="benefits-block__body">
+                    <h3 class="benefits-block__item--benefit-heading">Up to 24-Month Financingƚ</h3>
+                    <p>during special promotions.</p>
+                </div>
+            </div>
+
+        </div>
+        <button type="button" id="exercise-learn-more">Learn More</button>
     `;
-        anchor.insertAdjacentElement("afterend", section);
 
-        const modal = document.createElement("div");
-        modal.id = "exercise-modal";
-        modal.hidden = true;
-        modal.innerHTML = `
+    anchor.insertAdjacentElement('afterend', section);
+
+    const modal = document.createElement('div');
+    modal.id = 'exercise-modal';
+    modal.hidden = true;
+    modal.innerHTML = `
         <link type="text/css" href="https://citiretailservices.citibankonline.com/apply/assets/css/desktop/dmar/partners/THD/dmar-modal-disclosure.css" rel="stylesheet">
+
+        
+        <div class="exercise-modal__backdrop cui-popup-content__clickable-backdrop" data-close></div>
     
-      <div class="exercise-modal__backdrop cui-popup-content__clickable-backdrop" data-close></div>
-      
-      <div class="exercise-modal__dialog modal-dialog" role="dialog" aria-modal="true" aria-labelledby="exercise-modal-title">
-      
-        <h2 id="exercise-modal-title">Learn more</h2>
-        <p>Modal content.</p>
+        <div class="exercise-modal__dialog modal-dialog" role="dialog" aria-modal="true" aria-labelledby="exercise-modal-title">
+    
         <button type="button" data-close>Close</button>
       
-      <div class="modal-offer" id="wrap">
-
+        <!-- Top Part with Image -->
         <div class="modal-offer__header" data-offer-header="">
             <div class="offer-cardart" id="cardart-cont">
                 <picture>
@@ -46,7 +62,7 @@
 
             <div class="hero-background" style="display: none;"></div>
         </div>
-
+        
         <!-- Begin Modal offer benefits -->
         <div class="benefits-block" data-benefits="">
             <!-- Stacked benefits (up to 6) -->
@@ -99,6 +115,7 @@
 
         </div>
         <!-- .modal-offer__benefits -->
+        
         <!-- BEGIN MULTI COLUMN BENEFITS -->
         <div class="benefits-block-column" data-benefit-column="SHOW">
 
@@ -185,26 +202,35 @@
       
     <!--/.modal-->
     `;
-        document.body.appendChild(modal);
+    document.body.appendChild(modal);
 
-        const open = () => { modal.hidden = false; };
-        const close = () => { modal.hidden = true; };
+    const open = () => {
+      modal.hidden = false;
+    };
+    const close = () => {
+      modal.hidden = true;
+    };
 
-        section.querySelector("#exercise-learn-more").addEventListener("click", open);
-        modal.addEventListener("click", (e) => {
-            if (e.target.closest("[data-close]")) close();
-        });
-        document.addEventListener("keydown", (e) => {
-            if (e.key === "Escape") close();
-        });
-
-        return true;
-    }
-
-    if (mount()) return;
-
-    const observer = new MutationObserver(() => {
-        if (mount()) observer.disconnect();
+    section
+      .querySelector('#exercise-learn-more')
+      .addEventListener('click', open);
+    modal.addEventListener('click', (e) => {
+      if (e.target.closest('[data-close]')) close();
     });
-    observer.observe(document.documentElement, { childList: true, subtree: true });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') close();
+    });
+
+    return true;
+  }
+
+  if (mount()) return;
+
+  const observer = new MutationObserver(() => {
+    if (mount()) observer.disconnect();
+  });
+  observer.observe(document.documentElement, {
+    childList: true,
+    subtree: true,
+  });
 })();
