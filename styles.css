@@ -1,0 +1,50 @@
+#exercise-section {
+  margin: 24px auto;
+  max-width: 728px;
+  padding: 24px;
+  background: #fff;
+  border-radius: 8px;
+}
+
+#exercise-learn-more {
+  margin-top: 12px;
+  padding: 12px 20px;
+  cursor: pointer;
+}
+
+#exercise-modal[hidden] {
+  display: none;
+}
+
+#exercise-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483646;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.exercise-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.exercise-modal__dialog {
+  position: relative;
+  z-index: 1;
+  width: min(480px, 100%);
+  max-height: calc(100vh - 48px);
+  overflow: auto;
+  box-sizing: border-box;
+  padding: 24px;
+  background: #fff;
+  border-radius: 12px;
+}
+
+.exercise-modal__dialog img {
+  max-width: 100%;
+  height: auto;
+}
