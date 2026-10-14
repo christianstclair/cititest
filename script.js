@@ -2,7 +2,7 @@
   if (document.getElementById('exercise-section')) return;
 
   function mount() {
-    const anchor = document.querySelector('.formCard');
+    const anchor = document.querySelector('.review-authorization-content');
     if (!anchor || document.getElementById('exercise-section')) return false;
 
     const section = document.createElement('section');

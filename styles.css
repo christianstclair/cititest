@@ -56,19 +56,26 @@ a {
 // Start Custom rules
 
 #exercise-section {
-  margin: 24px auto;
+  margin: 0;
+  padding: 0;
   max-width: 728px;
-  padding: 24px;
   background: #fff;
   border-radius: 8px;
 }
 
 #exercise-learn-more {
-  margin-top: 12px;
-  padding: 12px 20px;
-  cursor: pointer;
+  font-family: 'FoundationSans-Roman', arial, helvetica, sans-serif;
+  color: #000;
+  font-size: 16px;
+  line-height: normal;
+  background: none;
+  border: none;
+  text-decoration: underline;
 }
 
+#exercise-learn-more:hover {
+  cursor: pointer;
+}
 #exercise-modal[hidden] {
   display: none;
 }
